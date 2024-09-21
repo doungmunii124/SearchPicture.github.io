@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Pictures with Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+        }
+        .image-preview {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search for Pictures</h1>
+    <form action="https://www.example.com/search" method="GET" onsubmit="showPreview(event)">
+        <input type="text" name="query" placeholder="Enter search term..." required>
+        <input type="submit" value="Search">
+    </form>
+    <div class="image-preview" id="preview"></div>
+
+    <script>
+        function showPreview(event) {
+            event.preventDefault();
+            const query = event.target.query.value;
+            const previewDiv = document.getElementById('preview');
+            previewDiv.innerHTML = `<h2>Results for "${query}":</h2><img src="https://via.placeholder.com/150?text=${query}" alt="${query} image">`;
+        }
+    </script>
+</body>
+</html>
